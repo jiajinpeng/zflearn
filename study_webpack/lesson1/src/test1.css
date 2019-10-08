@@ -1,0 +1,5 @@
+@import './test2.css';
+@import './test3.less';
+body{
+    background: red;
+}

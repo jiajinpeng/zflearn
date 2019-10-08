@@ -1,0 +1,14 @@
+body{
+    background: yellow;
+}
+body div {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+body {
+  background: red;
+}
+
