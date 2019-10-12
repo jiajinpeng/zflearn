@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a onclick="fn('/a')">去a页面</a>
+  <a onclick="fn('/b')">去b页面</a>
+  <span id="span"></span>
+  <script>
+    // 会发生找不到的情况， webpack插件会帮我们默认跳转到首页
+    function fn(pathname) {
+        window.history.pushState({},null, pathname);
+        span.innerHTML = pathname
+    }
+    // 监控前进后退 ，h5的api无法自动监听前进后退操作需要手动处理
+    window.addEventListener('popstate',(e)=>{
+        let pathname = window.location.pathname;
+        span.innerHTML = pathname
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+(function (modules) {
+  var installedModules = {};
+  function __webpack_require__(moduleId) {
+
+    if (installedModules[moduleId]) {
+      return installedModules[moduleId].exports;
+    }
+    var module = installedModules[moduleId] = {
+      i: moduleId,
+      l: false,
+      exports: {}
+    };
+
+    modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+    module.l = true;
+
+    return module.exports;
+  }
+
+  return __webpack_require__(__webpack_require__.s = "<%-entryId%>");
+})
+
+  ({
+    <%
+       for (let moduleId in modules) {
+  let source = modules[moduleId];%>
+    "<%-moduleId%>":
+  (function (module, exports, __webpack_require__) {
+    eval(`<%-source%>`);
+  }),
+
+          <% }
+    %>
+});
+    /**
+     * 1.所有模块ID都要转成相对于根目录 的相对路径,
+     * 2.如果原来模块没有加后缀的话，要加给上a.js
+     */

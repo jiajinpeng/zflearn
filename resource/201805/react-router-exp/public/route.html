@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    hash版本 window.location.hash = '/a'
+   -->
+   <a href="#/a">去a页面</a>
+   <a href="#/b">去b页面</a>
+   <div id="span"></div>
+   <script>
+     // hashchange无法监听到第一次的事件
+     window.addEventListener('hashchange',(e)=>{
+       span.innerHTML = window.location.hash
+     },false)
+   </script>
+</body>
+</html>
